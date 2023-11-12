@@ -1,12 +1,20 @@
 import 'react-native-gesture-handler';
 import React, {FC} from 'react';
-import Navigation from './Navigation';
+import Navigation from './navigation/Navigation';
 import {ThemeProvider} from 'styled-components/native';
-import {CommonTheme} from '../atomic/theme';
+import {StatusBar} from 'react-native';
+import {CommonTheme} from '../theme';
 
 const App: FC = () => {
   return (
     <ThemeProvider theme={CommonTheme}>
+      <StatusBar
+        animated={true}
+        translucent={true}
+        showHideTransition="fade"
+        barStyle="dark-content"
+        backgroundColor="transparent"
+      />
       <Navigation />
     </ThemeProvider>
   );

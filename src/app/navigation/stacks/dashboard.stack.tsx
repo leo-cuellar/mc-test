@@ -1,10 +1,15 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-
-import OnboardingDashboardScreen from './onboarding.dashboard.screen';
+import {
+  CardControlsPage,
+  DashboardPage,
+  OnboardingPage,
+} from '../../../atomic/pages';
 
 export type DashboardRoutes = {
   DashboardOnboarding: undefined;
+  DashboardMain: undefined;
+  DashboardCardControls: undefined;
 };
 
 const Stack = createStackNavigator<DashboardRoutes>();
@@ -18,9 +23,23 @@ export const DashboardStack = () => {
       }}>
       <Stack.Screen
         name="DashboardOnboarding"
-        component={OnboardingDashboardScreen}
+        component={OnboardingPage}
         options={{
           headerTitle: 'Onboarding',
+        }}
+      />
+      <Stack.Screen
+        name="DashboardMain"
+        component={DashboardPage}
+        options={{
+          headerTitle: 'Cards',
+        }}
+      />
+      <Stack.Screen
+        name="DashboardCardControls"
+        component={CardControlsPage}
+        options={{
+          headerTitle: 'Card Controls',
         }}
       />
     </Stack.Navigator>
