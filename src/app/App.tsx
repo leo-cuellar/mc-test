@@ -12,7 +12,7 @@ const App: FC = () => {
         animated={true}
         translucent={true}
         showHideTransition="fade"
-        barStyle="dark-content"
+        barStyle="light-content"
         backgroundColor="transparent"
       />
       <Navigation />

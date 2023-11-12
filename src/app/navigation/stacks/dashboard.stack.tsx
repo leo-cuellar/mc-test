@@ -5,6 +5,8 @@ import {
   DashboardPage,
   OnboardingPage,
 } from '../../../atomic/pages';
+import LinearGradient from 'react-native-linear-gradient';
+import styled, {useTheme} from 'styled-components/native';
 
 export type DashboardRoutes = {
   DashboardOnboarding: undefined;
@@ -14,12 +16,29 @@ export type DashboardRoutes = {
 
 const Stack = createStackNavigator<DashboardRoutes>();
 
+const StyledBackground = styled(LinearGradient)`
+  flex: 1;
+`;
+
+const HeaderBackground = () => {
+  const theme = useTheme();
+  return (
+    <StyledBackground
+      start={{x: 0, y: 0}}
+      end={{x: 1, y: 0}}
+      colors={[theme.color.primary, theme.color.secondary]}
+    />
+  );
+};
+
 export const DashboardStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="DashboardOnboarding"
       screenOptions={{
         headerTitle: 'Empty Stack',
+        headerBackground: HeaderBackground,
+        headerTintColor: '#FFFFFF',
       }}>
       <Stack.Screen
         name="DashboardOnboarding"
