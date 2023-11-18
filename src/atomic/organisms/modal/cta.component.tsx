@@ -86,7 +86,13 @@ export const CTAModal: React.FC<CTAModalProps> = ({visible, hide, action}) => {
             Enjoy your digital journey.
           </Text>
           <FlexSpacer />
-          <Button text="View Dashboard" onPress={action} />
+          <Button
+            text="View Dashboard"
+            onPress={() => {
+              action();
+              hide();
+            }}
+          />
         </StyledContainer>
       </Content>
     </Modal>

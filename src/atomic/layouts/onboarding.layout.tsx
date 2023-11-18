@@ -64,7 +64,7 @@ export const OnboardingLayout: React.FC = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout backgroundColor="white">
       <CTAModal
         visible={ctaModalVisible}
         hide={() => setCtaModalVisible(false)}

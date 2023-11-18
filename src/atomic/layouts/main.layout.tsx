@@ -5,21 +5,26 @@ import styled from 'styled-components';
 
 interface MainLayoutProps {
   children: ReactNode;
+  backgroundColor?: string;
 }
 
 const StyledSafeArea = styled(SafeAreaView)`
   flex: 1;
 `;
 
-const StyledView = styled(View)`
+const StyledView = styled(View)<{backgroundColor?: string}>`
   height: 100%;
   width: 100%;
-  background-color: white;
+  ${props =>
+    props.backgroundColor ? `background-color: ${props.backgroundColor};` : ''}
 `;
 
-export const MainLayout: React.FC<MainLayoutProps> = ({children}) => {
+export const MainLayout: React.FC<MainLayoutProps> = ({
+  children,
+  backgroundColor,
+}) => {
   return (
-    <StyledView>
+    <StyledView backgroundColor={backgroundColor}>
       <Box row>
         <Spacer horizontal size={24} />
         <StyledSafeArea>

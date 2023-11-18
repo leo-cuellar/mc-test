@@ -28,21 +28,32 @@ const ICONS = {
   nfc: require('../../../assets/icons/nfc.png'),
   'person-add-o': require('../../../assets/icons/person-add-o.png'),
   refresh: require('../../../assets/icons/refresh.png'),
-  'security-system-w': require('../../../assets/icons/security-system-w.png'),
-  'security-system': require('../../../assets/icons/security-system.png'),
-  'settings-adjust': require('../../../assets/icons/settings-adjust.png'),
-  settings: require('../../../assets/icons/settings.png'),
+  'security-f': require('../../../assets/icons/security-f.png'),
+  'security-o': require('../../../assets/icons/security-o.png'),
+  'settings-f': require('../../../assets/icons/settings-f.png'),
+  'settings-o': require('../../../assets/icons/settings-o.png'),
   'sorting-m': require('../../../assets/icons/sorting-m.png'),
   speedometer: require('../../../assets/icons/speedometer.png'),
   'wallet-m': require('../../../assets/icons/wallet-m.png'),
+  'bell-o': require('../../../assets/icons/bell-o.png'),
+  'credit-card': require('../../../assets/icons/credit-card.png'),
+  'settings-sort': require('../../../assets/icons/settings-sort.png'),
+  'settings-card': require('../../../assets/icons/settings-card.png'),
 };
 
 interface IconProps {
-  name: string;
+  source?: string;
+  name?: string;
+  width?: string;
 }
 
-const StyledIcon = styled(ReactImage)``;
+const StyledIcon = styled(ReactImage)<IconProps>`
+  ${props => props.width && `width: ${props.width};`}
+  resize-mode: contain;
+`;
 
-export const Icon: React.FC<IconProps> = ({name}) => {
-  return <StyledIcon source={ICONS[name as keyof typeof ICONS]} />;
+export const Icon: React.FC<IconProps> = ({name, width}) => {
+  return (
+    <StyledIcon source={ICONS[name as keyof typeof ICONS]} width={width} />
+  );
 };

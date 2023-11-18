@@ -52,6 +52,7 @@ export const DashboardStack = () => {
         component={DashboardPage}
         options={{
           headerTitle: 'Cards',
+          headerLeft: () => null,
         }}
       />
       <Stack.Screen
@@ -59,6 +60,7 @@ export const DashboardStack = () => {
         component={CardControlsPage}
         options={{
           headerTitle: 'Card Controls',
+          headerBackTitleVisible: false,
         }}
       />
     </Stack.Navigator>

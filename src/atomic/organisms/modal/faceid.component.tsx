@@ -14,7 +14,7 @@ const Content = styled(View)`
 const StyledContainer = styled(View)`
   height: 188px;
   width: 188px;
-  background-color: #00000080;
+  background-color: #eeeeeeff;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -22,20 +22,17 @@ const StyledContainer = styled(View)`
   border-radius: 6px;
 `;
 
-interface ConfirmationModalProps {
+interface FaceIdModalProps {
   visible: boolean;
   hide: () => void;
 }
 
-export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
-  visible,
-  hide,
-}) => {
+export const FaceIdModal: React.FC<FaceIdModalProps> = ({visible, hide}) => {
   useEffect(() => {
     if (visible) {
       setTimeout(() => {
         hide();
-      }, 2500);
+      }, 1500);
     }
   }, [visible, hide]);
 
@@ -43,10 +40,8 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
     <Modal animationType="fade" transparent={true} visible={visible}>
       <Content>
         <StyledContainer>
-          <Icon name="chain" />
-          <Text type="H6" color="white">
-            Connected
-          </Text>
+          <Icon name="face-id-white" />
+          <Text type="H6">Face ID</Text>
         </StyledContainer>
       </Content>
     </Modal>
